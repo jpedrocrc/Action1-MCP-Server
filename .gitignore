@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.venv/
+
+# Segredos: Client ID/Secret do Action1 só devem existir no claude_desktop_config.json (fora do projeto)
+.env
+.env.*
+*.bak
+claude_desktop_config*.json
+
+# Dados exportados do Action1 (arquivo_saida, relatórios CSV/HTML, planilhas)
+saidas/
+*.json
+*.csv
+*.html
+*.xlsx
+*.xls

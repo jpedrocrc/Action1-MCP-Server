@@ -1,0 +1,31 @@
+[project]
+name = "action1-mcp-server"
+version = "1.0.0"
+description = "MCP server somente leitura para a API do Action1 (patches, vulnerabilidades e inventário)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "João Pedro Rodrigues", email = "jpedrocrc@hotmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.2.0,<2",  # mcp 2.x renomeou FastMCP
+    "httpx>=0.27",
+]
+keywords = ["mcp", "action1", "patch-management", "vulnerability", "rmm", "claude"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+action1-mcp-server = "action1_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/action1_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/action1_mcp", "test_server.py", "README.md", "LICENSE"]
